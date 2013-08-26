@@ -1,13 +1,9 @@
 # spce/spec_helper.rb
-require 'rack/test'
+require 'rubygems'
+require 'bundler/setup'
+require 'rspec'
 
-module MyTestMethods
-    def app
-        Sinatra::Application
-    end
-end
+Dir[File.join(File.dirname(__FILE__), "..", "**/*.rb")].each{|f| require f }
 
 Spec::Runner.configure do |config|
-    config.include Rack::Test::Methods
-    config.include MyTestMethods
 end
