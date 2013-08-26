@@ -11,7 +11,6 @@ $primitive_fun_env = {
 $boolean_env = { :true => true, :false => false}
 $global_env = [$primitive_fun_env, $boolean_env]
 
-
 ## eval
 def _eval(exp, env)
   if not list?(exp)
