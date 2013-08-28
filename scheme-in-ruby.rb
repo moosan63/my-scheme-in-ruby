@@ -30,10 +30,12 @@ def _eval(exp, env)
   end
 end
 
+##
 def eval_list(exp, env)
   exp.map{|e| _eval(e, env)}
 end
 
+#
 def eval_let(exp, env)
   parameters, args, body = let_to_parameters_args_body(exp)
   new_exp = [[:lambda, parameters, body]] +args

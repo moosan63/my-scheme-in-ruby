@@ -3,7 +3,4 @@ require 'rubygems'
 require 'bundler/setup'
 require 'rspec'
 
-Dir[File.join(File.dirname(__FILE__), "..", "**/*.rb")].each{|f| require f }
-
-Spec::Runner.configure do |config|
-end
+Dir[File.join(File.dirname(__FILE__), "..", "app", "**/*.rb")].each{|f| require f }
