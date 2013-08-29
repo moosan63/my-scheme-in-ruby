@@ -10,16 +10,16 @@ module MySchemeInRuby
     end
 
     def car
-      if @value.is_list?
-        Expression.new(@value[0])
+      if self.is_list?
+        Expression.new(@value[0]).value
       else
         @value
       end
     end
 
     def cdr
-      if @value.is_list?
-        Expression.new(@value[1..-1])
+      if self.is_list?
+        Expression.new(@value[1..-1]).value
       else
         @value
       end
@@ -35,14 +35,14 @@ module MySchemeInRuby
     end
 
     def is_immediate_val?
-      @value.is_num?
+      is_num?
     end
     
     def is_special_form?
-      @value.is_lambda? or       
-        @value.is_let? or
-        @value.is_letrec? or
-        @value.is_if?
+      self.is_lambda? or       
+        self.is_let? or
+        self.is_letrec? or
+        self.is_if?
     end
 
     def is_primitive_fun?
@@ -61,12 +61,13 @@ module MySchemeInRuby
       @value[0] == :let
     end
 
-    def is_num?
-      @value.is_a?(Numeric)
-    end
-
     def is_if?
       @value[0] == :if
+    end
+    
+    private
+    def is_num?
+      @value.is_a?(Numeric)
     end
   end
 end
