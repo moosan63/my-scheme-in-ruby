@@ -11,22 +11,22 @@ module MySchemeInRuby
 
     def car
       if self.is_list?
-        Expression.new(@value[0]).value
+        Expression.new(@value[0])
       else
-        @value
+        self
       end
     end
 
     def cdr
       if self.is_list?
-        Expression.new(@value[1..-1]).value
+        Expression.new(@value[1..-1])
       else
-        @value
+        self
       end
     end
 
     def return_list(*list)
-      list
+      Expression.new(list)
     end
 
     ## bools
